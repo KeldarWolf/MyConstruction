@@ -1,36 +1,35 @@
 pipeline {
     agent any
+    
+    environment {
+        PATH = "C:\\Program Files\\Git\\bin;${env.PATH}" // Asegúrate de que Git esté en el PATH
+    }
 
     stages {
         stage('Checkout') {
             steps {
-                // Clonar el repositorio
                 git branch: 'main', url: 'https://github.com/KeldarWolf/MyConstruction.git'
             }
         }
-
         stage('Build') {
             steps {
-                // Navegar al directorio del proyecto y construirlo
                 dir('myconstruction') {
-                    sh 'mvn clean install'
+                    bat 'mvn clean install' // Usa 'bat' en lugar de 'sh' para sistemas Windows
                 }
             }
         }
-
         stage('Test') {
             steps {
-                // Ejecutar pruebas si las hay
                 dir('myconstruction') {
-                    sh 'mvn test'
+                    bat 'mvn test' // Ejecución de pruebas
                 }
             }
         }
     }
-
+    
     post {
         success {
-            echo 'Build completado exitosamente.'
+            echo 'Pipeline completado exitosamente.'
         }
         failure {
             echo 'Error durante el proceso de construcción.'
