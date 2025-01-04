@@ -14,11 +14,11 @@
   </properties>
 
   <dependencies>
-      <dependency>
-          <groupId>mysql</groupId>
-          <artifactId>mysql-connector-java</artifactId>
-          <version>8.0.40</version> <!-- Versión más reciente -->
-      </dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.30</version>
+</dependency>
   </dependencies>
 
 </project>
