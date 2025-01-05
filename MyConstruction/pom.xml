@@ -1,74 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-  <modelVersion>4.0.0</modelVersion>
 
-  <groupId>MyConstruction</groupId>
-  <artifactId>MyConstruction</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
 
-  <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>  <!-- Ajusta esto según tu versión de Java -->
-      <maven.compiler.target>1.8</maven.compiler.target>  <!-- Ajusta esto según tu versión de Java -->
-  </properties>
+    <groupId>MyConstruction</groupId>
+    <artifactId>MyConstruction</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-  <dependencies>
-      <dependency>
-          <groupId>mysql</groupId>
-          <artifactId>mysql-connector-java</artifactId>
-          <version>8.0.30</version>
-      </dependency>
-  </dependencies>
+    <properties>
+        <maven.compiler.release>8</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-  <distributionManagement>
-    <repository>
-        <id>libs-release-local</id>
-        <url>http://localhost:8082/artifactory/libs-release-local</url>
-    </repository>
-    <snapshotRepository>
-        <id>libs-snapshot-local</id>
-        <url>http://localhost:8082/artifactory/libs-snapshot-local</url>
-    </snapshotRepository>
-  </distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
+    </dependencies>
 
-  <!-- Configuración para la autenticación con Artifactory -->
-  <repositories>
-      <repository>
-          <id>libs-release-local</id>
-          <url>http://localhost:8082/artifactory/libs-release-local</url>
-      </repository>
-      <repository>
-          <id>libs-snapshot-local</id>
-          <url>http://localhost:8082/artifactory/libs-snapshot-local</url>
-      </repository>
-  </repositories>
+    <distributionManagement>
+        <repository>
+            <id>libs-release-local</id>
+            <url>http://localhost:8082/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>libs-snapshot-local</id>
+            <url>http://localhost:8082/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-  <pluginRepositories>
-      <pluginRepository>
-          <id>plugins-release-local</id>
-          <url>http://localhost:8082/artifactory/plugins-release-local</url>
-      </pluginRepository>
-      <pluginRepository>
-          <id>plugins-snapshot-local</id>
-          <url>http://localhost:8082/artifactory/plugins-snapshot-local</url>
-      </pluginRepository>
-  </pluginRepositories>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <repositoryId>libs-release-local</repositoryId>
-          <url>http://localhost:8082/artifactory/libs-release-local</url>
-          <uniqueVersion>false</uniqueVersion>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <repositoryId>libs-release-local</repositoryId>
+                    <url>http://localhost:8082/artifactory/libs-release-local</url>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
+
