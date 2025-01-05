@@ -10,13 +10,12 @@ pipeline {
     }
     
     environment {
-        PATH = "C:\\Program Files\\Git\\bin;${env.PATH}"
+        // Concatenar todas las rutas necesarias en una sola asignación a PATH
+        PATH = "C:\\Program Files\\Git\\bin;${env.PATH};${tool 'NodeJS'}/npm;${tool 'Maven'}/bin"
         NODEJS_HOME = tool 'NodeJS'
-        PATH = "${env.PATH};${env.NODEJS_HOME}\\npm"  // Unificar PATH de NodeJS
+        MAVEN_HOME = tool 'Maven'
         ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
         GITHUB_CREDENTIALS = credentials('github-credentials')
-        MAVEN_HOME = tool 'Maven'
-        PATH = "${env.PATH};${env.MAVEN_HOME}/bin"  // Unificar PATH de Maven
     }
 
     stages {
