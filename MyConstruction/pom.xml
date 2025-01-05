@@ -14,11 +14,20 @@
   </properties>
 
   <dependencies>
-    <dependency>
+<dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.30</version>
 </dependency>
   </dependencies>
-
+<distributionManagement>
+    <repository>
+        <id>libs-release-local</id>
+        <url>http://localhost:8082/artifactory/libs-release-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>libs-snapshot-local</id>
+        <url>http://localhost:8082/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
 </project>
