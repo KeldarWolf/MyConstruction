@@ -70,18 +70,5 @@
     </plugins>
   </build>
 
-  <!-- Configuración para las credenciales de Artifactory -->
-  <servers>
-    <server>
-      <id>libs-release-local</id>
-      <username>tu_usuario</username>
-      <password>tu_token_o_contraseña</password>
-    </server>
-    <server>
-      <id>libs-snapshot-local</id>
-      <username>admin</username>
-      <password>eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJyWGdZMUlpYWxlVTRLcktkd0NEbk5uN2t6TDFxX1JrVHBQNVlIalIzaktZIn0.eyJzdWIiOiJqZmFjQDAxamZ0eHljYm14MGUzMG5jMXJzdjMxNGFiL3VzZXJzL2FkbWluIiwic2NwIjoiYXBwbGllZC1wZXJtaXNzaW9ucy9hZG1pbiIsImF1ZCI6IipAKiIsImlzcyI6ImpmZmVAMDFqZnR4eWNibXgwZTMwbmMxcnN2MzE0YWIiLCJpYXQiOjE3MzYwNTMyNzUsImp0aSI6Ijk4ODZkZDNhLTg4NjItNDYzNy04ZTg4LTc4NWI3ZGIwYWRlYiJ9.sLzeS8f9mm0XKTcwHy5v1m2T2hYyyxZuAOSAlFnhfviGIJu9JSBtdmMgRHFxSxQ12maiRw5cTnWFqgbrT4uAsukl6KU0PsprC7dXV3M5X70y5Knsg4SsAzBTrC53KVD4pkMikw6e9eV-ou9gG_E-F4BChNbYg4_PU4367QwUgS89tQWHqkUIocusJXRCetdB_VDMBp2xBELfTmUcwgLOcnWX2XHjfRmEAW_YgBh8uLJUHIrD6JCGje2AygY3v7WTownjgJBRX1xISxEtfNlekjh7DeWESMExszwdorlm2lLDxTskktWwbmVpmgee5hLxaPJf22x_Fm4Tk98HG8xwew</password>
-    </server>
-  </servers>
 
 </project>
