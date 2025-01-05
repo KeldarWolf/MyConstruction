@@ -14,8 +14,6 @@ pipeline {
         PATH = "C:\\Program Files\\Git\\bin;${env.PATH};${tool 'NodeJS'}/npm;${tool 'Maven'}/bin"
         NODEJS_HOME = tool 'NodeJS'
         MAVEN_HOME = tool 'Maven'
-        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
-        GITHUB_CREDENTIALS = credentials('github-credentials')
     }
 
     stages {
@@ -23,8 +21,8 @@ pipeline {
             steps {
                 cleanWs()
                 withCredentials([usernamePassword(credentialsId: 'github-credentials', 
-                                              usernameVariable: 'GIT_USERNAME', 
-                                              passwordVariable: 'GIT_PASSWORD')]) {
+                                                  usernameVariable: 'GIT_USERNAME', 
+                                                  passwordVariable: 'GIT_PASSWORD')]) {
                     git branch: 'main', 
                         url: 'https://github.com/KeldarWolf/MyConstruction.git',
                         credentialsId: 'github-credentials'
@@ -78,8 +76,8 @@ pipeline {
         stage('Deploy to JFrog') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'artifactory-credentials',
-                                              usernameVariable: 'ARTIFACTORY_USERNAME',
-                                              passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
+                                                  usernameVariable: 'ARTIFACTORY_USERNAME',
+                                                  passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
                     script {
                         def server = Artifactory.newServer(
                             url: 'http://localhost:8082/artifactory',
