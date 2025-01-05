@@ -12,12 +12,11 @@ pipeline {
     environment {
         PATH = "C:\\Program Files\\Git\\bin;${env.PATH}"
         NODEJS_HOME = tool 'NodeJS'
-        PATH = "${env.NODEJS_HOME}\\npm;${env.PATH}"
-        // Usar credentials binding para mayor seguridad
+        PATH = "${env.PATH};${env.NODEJS_HOME}\\npm"  // Unificar PATH de NodeJS
         ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
         GITHUB_CREDENTIALS = credentials('github-credentials')
         MAVEN_HOME = tool 'Maven'
-        PATH = "${env.MAVEN_HOME}/bin:${env.PATH}"
+        PATH = "${env.PATH};${env.MAVEN_HOME}/bin"  // Unificar PATH de Maven
     }
 
     stages {
@@ -130,8 +129,7 @@ pipeline {
             emailext (
                 subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                 body: """FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'""",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-            )
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']])
         }
         always {
             cleanWs()
